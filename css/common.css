@@ -1,0 +1,62 @@
+html, body{
+    margin: 0px;
+}
+
+body{
+    font-family: Avenir, 'Open Sans', -apple-system, BlinkMacSystemFont, "Yu Gothic" ,YuGothicM, Meiryo, sans-serif;
+
+}
+
+.navbar{
+    height:70px;
+    background-color:#fff;
+    display: flex;
+    align-items:center;
+}
+
+.logo{
+    width: 200px;
+    height:100%;
+    background-image: url("../img/n-yobi-logo.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+}
+
+.navtext{
+    font-weight: Bold;
+}
+
+.header{
+    background-image: url("../img/dummy.png");
+    height:25vh;
+    background-position: center center;
+    background-repeat: repeat;  /* TODO: no-repeat */
+    position: relative;
+}
+
+.headertext{
+    color: #fff;
+    font-weight: Bold;
+    font-size: 200%;
+    position: absolute;
+    bottom: 5%;
+    left: 20px;
+    margin: 0px;
+}
+
+.content{
+    padding:3%;
+}
+
+.case{
+    background-color: #F6F6F6;
+    border-left: #000066 solid 3px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.casetitle{
+    color:#000066;
+
+}
