@@ -58,5 +58,11 @@ body{
 
 .casetitle{
     color:#000066;
+}
 
+.casechild{
+    background-color: #fff;
+    border-left: #000066 solid 3px;
+    padding: 10px;
+    margin: 10px;
 }
