@@ -28,9 +28,9 @@ body{
 }
 
 .header{
-    background-image: url("../img/dummy.png");
+    background-image: url("../img/vagrant-bg.jpg");
     height:25vh;
-    background-position: center center;
+    background-position: center left;
     background-repeat: repeat;  /* TODO: no-repeat */
     position: relative;
 }
