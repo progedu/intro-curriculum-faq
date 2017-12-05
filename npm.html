@@ -27,7 +27,9 @@
 
             <div class="case">
                 <h3 class="casetitle">何が起きているか</h3>
-                <p>Q&amp;Aにおいてよく寄せられる質問や、教材編集チームにおける動作確認によれば、</p>
+                <p>Q&amp;Aにおいてよく寄せられる質問や、教材編集チームにおける動作確認によれば、npm install 時に発生するトラブルの多くは Windows 上で構築した仮想環境にて発生しています。<br>
+                理由を簡単に説明してしまうと、 Windows と VirtualBox の共有フォルダ、そして npm という3つのソフトウェア・仕組みの相性が悪いからです。<br>
+                学習を進めていく上ではこれらの詳細について理解する必要はありませんが、気になる人も居ると思うのでここでは詳しく説明しましょう。<br>（WIP)</p>
             </div>
 
             <div class="case">
@@ -36,81 +38,31 @@
 
                 <div class="casechild">
                     <h4>【Windowsのみ】コマンドプロンプトを管理者権限で起動しているか確認</h4>
-                    <p>コマンドプロンプトを起動</p>
+                    <p>vagrant up を正しく行うためには、コマンドプロンプトに管理者権限が必要です。<br>
+                    コマンドプロンプトのタイトルバーに「管理者」と表示されていない場合は管理者権限で起動できていません。<br>
+                    vagrant halt を行って仮想環境を終了し、コマンドプロンプトを管理者権限で起動するところからやり直してください。</p>
                 </div>
 
                 <div class="casechild">
-                    <h4>PC の再起動</h4>
-                    <p>操作を誤るなどして、思いもせず複数の仮想マシンを起動させている状態かもしれません。PC を再起動することによって、こういった状態がリセットされるので、まずはお試しください。</p>
+                    <h4>VagrantFile で共有フォルダの設定ができているか確認</h4>
+                    <p><a href="https://www.nnn.ed.nico/contents/guides/1472/content#try-shared-folder">教材</a> を参考にして共有フォルダの設定が最後まできちんとできているか確認してみてください。
+                    <pre>config.vm.synced_folder "./workspace", "/home/ubuntu/workspace"
+config.vm.provider :virtualbox do |vb|
+    vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate//home/ubuntu/workspace","1"]
+end</pre>
+特に、Windows 環境において上記設定ができているかを確認してください。（Mac の方は不要です。）
+                </p>
                 </div>
 
+                <div class="casechild">
+                        <h4>npm のバージョンを上げる</h4>
+                        <p>npm の開発チームもこの問題については認識しており、 npm 側の挙動を工夫することで問題の発生を回避するようにしています。最新版の npm では対策されているため、まずは npm を最新版にアップデートしましょう。<br>
+                            Ubuntu 上のターミナルにて以下のように入力してください。 <pre>npm install -g npm</pre> これで npm がアップデートされるので、完了したら通常通り、 npm install などをもう一度試してみてください。
+                        </p>
+                    </div>
             </div>
 
-            <div class="case">
-                <h3 class="casetitle">環境構築直後から vagrant up が全くできない</h3>
-                <p>いくつか理由が考えられますので、表示されているエラーメッセージや、PCの環境に注目して原因を突き止めてみましょう。</p>
-                <div class="casechild">
-                    <h4>【環境】以前、このPCで他の仮想環境を構築したことがある（Androidエミュレータなども含む）</h4>
-                    <p>仮想環境が競合していると思われますので、まずは他の仮想環境のプロセスを終了させてください。
-                        <br> また、Windows ユーザの方で Hyper-V を有効にしている方は、VirtualBox と Hyper-V は共存できませんので、vagrant up をする前に Hyper-V を無効化してください。
-                        <br> もし、何らかの事情で Hyper-V を無効にできる状況でなく、Linux 仮想環境を自力で構築できる方は Hyper-V 環境に
-                        <a href="https://www.ubuntulinux.jp/News/ubuntu1604-ja-remix" target="_blank">Ubuntu 16.04 LTS</a> をインストールしてホスト OS とのファイル共有を設定した上で、教材を適宜読み替えながら進めてください。</p>
-                </div>
-
-                <div class="casechild">
-                    <h4>【エラー】VT-x is not available と表示される</h4>
-                    <p>PC の設定で、仮想化オプションが無効になっているか、あるいはそもそも仮想化オプションが利用できない古い PC の可能性があります。
-                        <br>設定は Windows 上ではなく、BIOS あるいは UEFI とよばれるものを操作する必要があり、 PC によってかなり操作が異なるので、お使いの PC メーカーのサイトや取扱説明書を確認する、あるいは適宜検索してください。
-                        <br> 最近はほとんどの PC メーカーがオンラインマニュアルを Web 上で公開しているため、PC の機種名（型番）と「仮想化」といった語句で Google 検索を行うと資料がヒットするようです。
-                        <br> 自作 PC の方は、マザーボードの取扱説明書をご覧ください。</p>
-                </div>
-
-                <div class="casechild">
-                    <h4>【エラー】2222 番ポートにアクセスできない</h4>
-                    <p>お使いの PC と、PC 内に構築された仮想マシンは 2222 番ポートで通信します。このポートがファイアウォールやお使いのセキュリティソフト（ウィルス対策ソフトなど） によってブロックされている場合や、他のアプリケーションが
-                        2222 番ポートを既に使用していることによって、通信が阻害されている可能性があります。一旦 PC を再起動した上で、ファイアウォールやセキュリティソフトの設定を見直してください。</p>
-                </div>
-
-            </div>
-
-
-            <div class="case">
-                <h3 class="casetitle">以前は動作していたのに、突然 vagrant up ができなくなった</h3>
-                <p>以前は動作しており、なおかつ特に設定を変更していないのであれば、 PC の環境に問題はないはずです。</p>
-
-                <div class="casechild">
-                    <h4>仮想環境が壊れてしまった</h4>
-                    <p>何かをきっかけに仮想環境が壊れてしまった可能性が高いと思われます。ここまで学習を進めていたデータをバックアップした上で仮想環境の削除と再構築をしましょう。</p>
-                </div>
-            </div>
-
-
-            <div class="case">
-                <h3 class="casetitle">再構築の手順</h3>
-                <p>以前は動作していたのであれば、 PC の環境に問題はないはずです。</p>
-
-                <div class="casechild">
-                    <h4>Ubuntu 環境の再構築</h4>
-                    <p>まずはこちらからお試しください。</p>
-                    <p>教材通りに進めてきたのであれば、基本的に workspace ディレクトリ（フォルダ）にUbuntuで操作した全てのファイルがあるはずです。このフォルダを任意の場所、たとえばデスクトップやマイドキュメントなどにコピーし、バックアップしてください。なお、一度も
-                        vagrant up していない、あるいはできていない場合はバックアップの手順を省いて大丈夫です。
-                    </p>
-
-                    <p>
-                        続いて、一旦 PC を再起動します。
-                        <br> 再起動が完了したら、仮想マシンが存在しているフォルダ（ubuntu16_64）を削除してください。
-                    </p>
-
-                    <p>その後、
-                        <a href="https://www.nnn.ed.nico/contents/guides/1470/content#try-console" target="_blank">教材に従って</a>、 Ubuntu をもう一度インストールしてください。</p>
-                </div>
-
-                <div class="casechild">
-                    <h4>VirtualBox と Vagrant も再インストール</h4>
-                    <p>Ubuntu環境のみの再構築では問題が解決しなかった場合、最新の教材（
-                        <b>2017年版</b>）を確認してVirtualBox および Vagrant の再インストールも試みてください。</p>
-                </div>
-            </div>
+            
 
             <div class="case">
                 <h3 class="casetitle">わからないので質問をしたい</h3>
