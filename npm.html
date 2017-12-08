@@ -28,8 +28,9 @@
             <div class="case">
                 <h3 class="casetitle">何が起きているか</h3>
                 <p>Q&amp;Aにおいてよく寄せられる質問や、教材編集チームにおける動作確認によれば、npm install 時に発生するトラブルの多くは Windows 上で構築した仮想環境にて発生しています。<br>
-                理由を簡単に説明してしまうと、 Windows と VirtualBox の共有フォルダ、そして npm という3つのソフトウェア・仕組みの相性が悪いからです。<br>
-                学習を進めていく上ではこれらの詳細について理解する必要はありませんが、気になる人も居ると思うのでここでは詳しく説明しましょう。<br>（WIP)</p>
+                理由を簡単に説明してしまうと、 Windows と VirtualBox の共有フォルダ、そして npm という3つのソフトウェア・仕組みの相性が悪いからです。
+                <!--<br>
+                学習を進めていく上ではこれらの詳細について理解する必要はありませんが、気になる人も居ると思うのでここでは詳しく説明しましょう。<br>（WIP)--></p>
             </div>
 
             <div class="case">
@@ -45,21 +46,47 @@
 
                 <div class="casechild">
                     <h4>VagrantFile で共有フォルダの設定ができているか確認</h4>
-                    <p><a href="https://www.nnn.ed.nico/contents/guides/1472/content#try-shared-folder">教材</a> を参考にして共有フォルダの設定が最後まできちんとできているか確認してみてください。
+                    <p>環境構築後、1回も npm install がうまく行っていない場合は <a href="https://www.nnn.ed.nico/contents/guides/1472/content#try-shared-folder" target="_blank">教材</a> を参考にして共有フォルダの設定が最後まできちんとできているか確認してみてください。
                     <pre>config.vm.synced_folder "./workspace", "/home/ubuntu/workspace"
 config.vm.provider :virtualbox do |vb|
     vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate//home/ubuntu/workspace","1"]
 end</pre>
-特に、Windows 環境において上記設定ができているかを確認してください。（Mac の方は不要です。）
-                </p>
+                    特に、Windows 環境において上記設定ができているかを確認してください。（Mac の方は不要です。）</p>
                 </div>
 
                 <div class="casechild">
+                    <h4>node_modules フォルダとキャッシュを削除</h4>
+                    <p>ダウンロードしたライブラリがインストールされる node_modules フォルダを削除した上で npm のキャッシュを削除してみましょう。<br>
+                            以下のコマンドを1行ずつ入力してください。</p>
+                        <pre>
+rm -rf node_modules
+npm cache clean --force
+npm install
+                        </pre>
+                </div>
+
+                
+            </div>
+
+            <div class="case">
+                <h3 class="casetitle">それでもダメな場合</h3>
+                <p>まず試すべきことがいくつかあります。</p>
+
+                <div class="casechild">
                         <h4>npm のバージョンを上げる</h4>
-                        <p>npm の開発チームもこの問題については認識しており、 npm 側の挙動を工夫することで問題の発生を回避するようにしています。最新版の npm では対策されているため、まずは npm を最新版にアップデートしましょう。<br>
+                        <p>npm の開発チームもこの問題については認識しており、 npm 側の挙動を工夫することで問題の発生を回避するようにしているようです。最新版の npm では対策されているため、まずは npm を最新版にアップデートしましょう。<br>
                             Ubuntu 上のターミナルにて以下のように入力してください。 <pre>npm install -g npm</pre> これで npm がアップデートされるので、完了したら通常通り、 npm install などをもう一度試してみてください。
                         </p>
-                    </div>
+                </div>
+
+                <div class="casechild">
+                        <h4>npm の代わりに yarn を使う</h4>
+                        <p>npm と互換性のある Node.js 用パッケージマネージャとして、 yarn (ヤーン) というものが存在しています。<br>
+                            教材第3章 <a href="https://www.nnn.ed.nico/contents/guides/1489/content#explain-yarn" target="_blank">「ライブラリ」の節</a> を参考に、 yarn を導入してみてください。<br>
+                            npm と似た感覚で操作できますが、一部コマンドが違うので、上記教材を参考にコマンドを読み替えながら進めてください。
+                        </p>
+                </div>
+
             </div>
 
             
