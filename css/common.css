@@ -1,36 +1,10 @@
-@font-face {
-    font-family: "Yu Gothic";
-    src: local("Yu Gothic Medium");
-    font-weight: 100;
-  }
-  @font-face {
-    font-family: "Yu Gothic";
-    src: local("Yu Gothic Medium");
-    font-weight: 200;
-  }
-  @font-face {
-    font-family: "Yu Gothic";
-    src: local("Yu Gothic Medium");
-    font-weight: 300;
-  }
-  @font-face {
-    font-family: "Yu Gothic";
-    src: local("Yu Gothic Medium");
-    font-weight: 400;
-  }
-  @font-face {
-    font-family: "Yu Gothic";
-    src: local("Yu Gothic Bold");
-    font-weight: bold;
-  }
-  
 html, body{
     margin: 0px;
 }
 
 body{
-    font-family: Avenir, 'Open Sans', -apple-system, BlinkMacSystemFont, "Yu Gothic" ,YuGothicM, Meiryo, sans-serif;
-
+    font-family: Avenir, 'Open Sans', -apple-system, BlinkMacSystemFont, "游ゴシック", "Yu Gothic" ,"游ゴシック体", YuGothic, Meiryo, sans-serif;
+    font-weight: 500;
 }
 
 .navbar{
