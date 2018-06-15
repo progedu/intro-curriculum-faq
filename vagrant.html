@@ -56,9 +56,16 @@
                 <div class="casechild">
                     <h4>【エラー】VT-x is not available と表示される</h4>
                     <p>PC の設定で、仮想化オプションが無効になっているか、あるいはそもそも仮想化オプションが利用できない古い PC の可能性があります。
-                        <br>設定は Windows 上ではなく、BIOS あるいは UEFI とよばれるものを操作する必要があり、 PC によってかなり操作が異なるので、お使いの PC メーカーのサイトや取扱説明書を確認する、あるいは適宜検索してください。
+                        <br>設定は Windows 上ではなく、BIOS あるいは UEFI とよばれるものを操作する必要があり、 PC によってかなり操作が異なるので、お使いの PC メーカーのサイトや取扱説明書を確認したり、適宜検索してください。
                         <br> 最近はほとんどの PC メーカーがオンラインマニュアルを Web 上で公開しているため、PC の機種名（型番）と「仮想化」といった語句で Google 検索を行うと資料がヒットするようです。
                         <br> 自作 PC の方は、マザーボードの取扱説明書をご覧ください。</p>
+                </div>
+
+                <div class="casechild">
+                    <h4>【エラー】incompatible character encodings: Windows-31J and UTF-8 (Encoding::CompatibilityError) と出る</h4>
+                    <p>Windows の方に限りますが、お使いの PC のユーザ名に日本語や記号などが含まれている場合はこのようなエラーが出てしまいます。<br>
+                    コントロールパネルから、名前が半角英数字だけの管理者ユーザを新しく作成し、そのユーザでログインして学習を進めてください。（参考：<a href="https://support.hp.com/jp-ja/document/c01967093" target="_blank">Windows 7 の場合</a>、<a href="https://support.microsoft.com/ja-jp/help/4026923/windows-10-create-a-local-user-or-administrator-account" target="_blank">Windows 10 の場合</a>）</p>
+                    
                 </div>
 
                 <div class="casechild">
@@ -82,7 +89,7 @@
 
             <div class="case">
                     <h3 class="casetitle">再構築の手順</h3>
-                    <p>以前は動作していたのであれば、 PC の環境に問題はないはずです。</p>
+                    <p>再構築をする場合、以下の手順で作業を行ってください。</p>
     
                     <div class="casechild">
                         <h4>Ubuntu 環境の再構築</h4>
@@ -95,7 +102,7 @@
                             再起動が完了したら、仮想マシンが存在しているフォルダ（ubuntu16_64）を削除してください。
                         </p>
     
-                        <p>その後、<a href="https://www.nnn.ed.nico/contents/guides/1470/content#try-console" target="_blank">教材に従って</a>、 Ubuntu をもう一度インストールしてください。</p>
+                        <p>その後、<a href="https://www.nnn.ed.nico/contents/guides/1470/content#try-console" target="_blank">教材に従って</a>、 Ubuntu をもう一度インストールしてください。この際、VirtualBox と Vagrant を再インストールする必要はありません。</p>
                     </div>
 
                     <div class="casechild">
@@ -106,7 +113,7 @@
 
                 <div class="case">
                         <h3 class="casetitle">わからないので質問をしたい</h3>
-                        <p>ここまで試しても解決方法が不明、あるいはこれらの解決方法に疑問がある場合は<a href="https://www.nnn.ed.nico/questions" target="_blank">Q&amp;A</a>にて質問してみてください。<br>その際は、スクリーンショットのみならず、お使いの PC の環境（特に OSのバージョン など）や、今まで試してみたことなどを忘れずにお書きください。</p>
+                        <p>ここまで試しても解決方法が不明、あるいはこれらの解決方法に疑問がある場合は<a href="https://www.nnn.ed.nico/questions" target="_blank">Q&amp;A</a>にて質問してみてください。<br>その際は、スクリーンショットのみならず、お使いの PC の環境（特に OSのバージョン、お使いのセキュリティソフトなど）や、今まで試してみたことなどを忘れずにお書きください。</p>
                     </div>
 
             
