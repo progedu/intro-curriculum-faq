@@ -45,6 +45,7 @@
             <div class="case">
                 <h3 class="casetitle">環境構築直後から vagrant up が全くできない</h3>
                 <p>いくつか理由が考えられますので、表示されているエラーメッセージや、PCの環境に注目して原因を突き止めてみましょう。</p>
+
                 <div class="casechild">
                     <h4>【環境】以前、このPCで他の仮想環境を構築したことがある（Androidエミュレータなども含む）</h4>
                     <p>仮想環境が競合していると思われますので、まずは他の仮想環境のプロセスを終了させてください。
@@ -63,8 +64,14 @@
 
                 <div class="casechild">
                     <h4>【エラー】incompatible character encodings: Windows-31J and UTF-8 (Encoding::CompatibilityError) と出る</h4>
+                    <h4>【環境】Windows環境で、PCのアカウント名が日本語など全角文字列になっている</h4>
+                    <p>起動時に表示されたり、ユーザフォルダの名前などに使用されているアカウント名（ユーザ名）が「ドワンゴ太郎」のように日本語などの全角文字列になっている場合、文字化けが発生してしまい、Vagrantの動作に影響が出てしまいます。<br>
+                        アカウント名だけを変更しても、内部的には変更前の文字列が残ってしまいます。そのため、名前が半角文字列だけのアカウントを新しく作成する必要があります。
+                        <br>
+                        Windows 10ではアカウントの作成手順がやや複雑なため、解説を用意しました。<b><a href="./win10-add-user.html">こちらのページ</a></b>をご覧ください。
+                    </p>
                     <p>Windows の方に限りますが、お使いの PC のユーザ名に日本語や記号などが含まれている場合はこのようなエラーが出てしまいます。<br>
-                    コントロールパネルから、名前が半角英数字だけの管理者ユーザを新しく作成し、そのユーザでログインして学習を進めてください。（参考：<a href="https://support.hp.com/jp-ja/document/c01967093" target="_blank">Windows 7 の場合</a>、<a href="https://support.microsoft.com/ja-jp/help/4026923/windows-10-create-a-local-user-or-administrator-account" target="_blank">Windows 10 の場合</a>）</p>
+                    コントロールパネルから、名前が半角英数字だけの管理者ユーザを新しく作成し、そのユーザでログインして学習を進めてください。（参考：<a href="https://support.hp.com/jp-ja/document/c01967093" target="_blank">Windows 7 の場合</a>）</p>
                     
                 </div>
 
