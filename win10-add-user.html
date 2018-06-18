@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/common.css">
+    <title>Windows 10での新規ユーザ作成 - N予備校 プログラミングコース</title>
+</head>
+
+<body>
+    <div class="contents-container">
+        <div class="navbar">
+            <div class="navtext">N予備校
+                <a href="./index.html">プログラミングコース トラブルシューティング</a>
+            </div>
+        </div>
+
+        <div class="header header-vagrant">
+            <h2 class="headertext">Windows 10での新規アカウント作成</h2>
+        </div>
+
+        <div class="content">
+
+            <p>このページでは、アカウント名（ユーザー名）に日本語などが含まれているために
+                <a href="./vagrant.html">Vagrant</a>のインストール時にトラブルが発生した方向けに、Windows 10での新しいアカウント作成手順を解説したものです。</p>
+
+            <div class="case">
+                <h3 class="casetitle">1. 設定画面を開く</h3>
+                <img src="./img/win10-adduser/win10-adduser-01.png">
+                <p>スタートメニューを右クリックし、表示されたメニューの中から
+                    <b>「設定」</b>をクリックします。</p>
+
+                <div class="casechild">
+                    <h4>英語と日本語の対照</h4>
+                    <ul>
+                        <li>Server Address → ホスト名（サーバーIPアドレス）</li>
+                        <li>Socket Port → TCPポート</li>
+                        <li>User Name → ログインユーザ名</li>
+                        <li>SSH Idenitiy Key → SSH 認証鍵</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="case">
+                <h3 class="casetitle">2. アカウント設定画面を開く</h3>
+                <img src="./img/win10-adduser/win10-adduser-02.png">
+                <p>
+                    <b>「アカウント」</b>をクリックします。（なお、この画面では左下に表示されていますが、ウィンドウのサイズによって「アカウント」が表示される位置は異なる場合があります。）</p>
+            </div>
+
+            <div class="case">
+                <h3 class="casetitle">3. ユーザを作成する</h3>
+                <div class="casechild">
+                    <img src="./img/win10-adduser/win10-adduser-03.png">
+                    <p>アカウント設定の画面に切り替わったら、左側のメニューから
+                        <b>「家族とその他のユーザー」</b>をクリックします。
+                        <br> 続いて、
+                        <b>「その他のユーザーをこの PC に追加」</b>をクリックします。</p>
+                </div>
+                <div class="casechild">
+                    <img src="./img/win10-adduser/win10-adduser-04.png">
+                    <p><b>「このユーザーのサインイン情報がありません」</b>をクリックします。</p>
+                </div>
+
+                <div class="casechild">
+                    <img src="./img/win10-adduser/win10-adduser-05.png">
+                    <p><b>「Microsoftアカウントを持たないユーザーを追加する」</b>をクリックします。</p>
+                </div>
+
+                <div class="casechild">
+                    <img src="./img/win10-adduser/win10-adduser-06.png">
+                    <p><b>「このPCを使うのはだれですか？」</b>の欄にすべて<b>半角英数字</b>で新しいアカウントの名前を入力します。<br>
+                    また、新しいアカウントで使うパスワードを入力します。</p>
+                </div>
+
+                <div class="casechild">
+                    <img src="./img/win10-adduser/win10-adduser-07.png">
+                    <p><b>続いて、スクロールして「パスワードを忘れた場合」</b>の欄には、パスワードを忘れた場合の質問を入力します。<br>
+                        上記はあくまで記入例なので、自分がきちんと思い出せるものを入力してください。<br>
+                    入力が完了したら、「次へ」をクリックします。</p>
+                </div>
+
+                <div class="casechild">
+                    <img src="./img/win10-adduser/win10-adduser-08.png">
+                    <p>元の画面に戻ったら、新しいアカウントが表示されているはずです。<br>
+                        このアカウントの名前の部分をクリックしてください。<br>
+                        すると、<b>「アカウントの種類を変更」</b>というボタンが出てくるので、そのボタンをクリックします。
+                    </p>
+                </div>
+
+                <div class="casechild">
+                    <img src="./img/win10-adduser/win10-adduser-09.png">
+                    <p>アカウントの種類を<b>「管理者」</b>に変更し、<b>「OK」</b>をクリックします。
+                    </p>
+                </div>
+
+                <div class="casechild">
+                    <img src="./img/win10-adduser/win10-adduser-10.png">
+                    <p><b>「管理者 - ローカルアカウント」</b>となっていることを確認したら、設定画面を閉じます。
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="case">
+                <h3 class="casetitle">4. 新しいアカウントにログインする</h3>
+                <img src="./img/win10-adduser/win10-adduser-11.png">
+                <p>現在のアカウントをログアウトします。（もし作業中のデータがあればすべて保存しておいてください。）<br>
+                <b>スタートボタン</b>をクリックし、丸い人のマークのアイコンをクリックします。<br>
+                続いて<b>「サインアウト」</b>をクリックします。</p>
+                <p>すると、パソコン起動時と同じような画面が現れるので、左下に表示される新しく作成したアカウントをクリックし、パスワードを入力してログインします。<br>
+                以後、入門コースはそのアカウントで学習を進めてください。</p>
+            </div>
+        </div>
+</body>
+
+</html>
