@@ -75,8 +75,18 @@ img{
     margin: 10px;
 }
 
+.caution {
+    background-color: #fff6e4;
+    padding: 10px;
+    margin: 10px;
+}
+
 .casetitle{
     color:#000066;
+}
+
+.cautiontitle{
+    color:#000000;
 }
 
 .casechild{
