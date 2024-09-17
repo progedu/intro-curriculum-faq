@@ -1,3 +1,6 @@
+https://github.com/nnn-training/faq　に移行しました
+
+
 # N予備校 プログラミングコース トラブルシューティングページ
 
 **https://progedu.github.io/intro-curriculum-faq/**
